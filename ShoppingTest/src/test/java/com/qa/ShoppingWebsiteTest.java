@@ -30,9 +30,17 @@ public class ShoppingWebsiteTest {
 
 	    @Test
 	    public void test() throws InterruptedException {
+	    	
+	    	//WHEN I go to the home page
 	        driver.get("http://automationpractice.com/index.php");
+	       
+	        //AND enter "dress" into the search bar
+	        //entering search
 	        WebElement targ = driver.findElement(By.id("search_query_top"));
 	        targ.sendKeys("dress\n");
+	        
+	        //THEN the website will take me to a result page with the search query "dress"
+	        //testing that search used the correct term via sub headding (does not check output of search itself)
 	       assertEquals("\"DRESS\"", driver.findElement(By.xpath("/html/body/div/div[2]/div/div[3]/div[2]/h1/span[1]")).getText());
 	    }
 
